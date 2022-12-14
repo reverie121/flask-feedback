@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    User Log In Form
+{% endblock title %}
+
+{% block content %}
+    
+<h1 class="h1 text-center">Log In User</h1>
+
+<div class="row align-items-center p-3">
+    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <form id="add-user-form" method="POST">
+            <div class="form-group">
+                {{ form.hidden_tag() }} <!--add type=hidden form fields -->
+        
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                <p>
+                    {{ field.label }}
+                    {{ field(class_='form-control') }}
+            
+                    {% for error in field.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </p>
+                {% endfor %}
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
