@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit Feedback Form
+{% endblock title %}
+
+{% block content %}
+    
+<h1 class="h1 text-center">Edit Feedback</h1>
+
+<div class="row align-items-center p-3">
+    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <form id="add-user-form" method="POST">
+            <div class="form-group">
+                {{ form.hidden_tag() }} <!--add type=hidden form fields -->
+        
+                <p>
+                {{form.title.label}}
+                {{form.title(class_='form-control', value=feedback.title)}}
+                </p>
+                <p>
+                {{form.content.label}}
+                {{form.content(class_='form-control', value=feedback.content)}}
+                </p>
+
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
